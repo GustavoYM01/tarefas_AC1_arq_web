@@ -33,20 +33,20 @@ public class Tarefa1Application {
 			listaProdutos.forEach(System.out::println);
 			System.out.println("\n\r");
 
-			System.out.println("******** Ex. Editar produto ********");
-			Produto p = listaProdutos.get(0);
-			p.atualizar(1, "Lápis", 15);
-			produtoRepository.editar(p);
-			listaProdutos.forEach(System.out::println);
-			System.out.println("\n\r");
+			// System.out.println("******** Ex. Editar produto ********");
+			// Produto p = listaProdutos.get(0);
+			// p.atualizar(1, "Lápis", 15);
+			// produtoRepository.editar(p);
+			// listaProdutos.forEach(System.out::println);
+			// System.out.println("\n\r");
 
-			System.out.println("******** Ex. Excluir produto ********");
-			listaProdutos = produtoRepository.excluirPorId(2);
-			System.out.println("******** Registro(s) restante(s) ********");
-			listaProdutos.forEach(System.out::println);
-			System.out.println("\n\r");
+			// System.out.println("******** Ex. Excluir produto ********");
+			// listaProdutos = produtoRepository.excluirPorId(2);
+			// System.out.println("******** Registro(s) restante(s) ********");
+			// listaProdutos.forEach(System.out::println);
+			// System.out.println("\n\r");
 
-			// ================================= CATEGORIA =================================	
+			// ================================= CATEGORIA =================================
 
 			System.out.println("******** Categorias inseridas ********\n\r");
 			categoriaProdutoRepository.inserir(new CategoriaProduto(1,"Material Escolar", "Produtos para uso acadêmico e demais áreas"));
@@ -62,18 +62,27 @@ public class Tarefa1Application {
 			listaCategoriaProduto.forEach(System.out::println);
 			System.out.println("\n\r");
 
-			System.out.println("******** Ex. Editar categoria ********");
-			CategoriaProduto cp = listaCategoriaProduto.get(0);
-			cp.atualizar(1, "Veículo", "Veículos automotores");
-			categoriaProdutoRepository.editar(cp);
-			listaCategoriaProduto.forEach(System.out::println);
-			System.out.println("\n\r");
+			// DEFININDO CATEGORIA PARA O(S) PRODUTO(S)
+			Produto p1 = produtoRepository.selecionarPorId(1).get(0);
+			p1.setCategoriaProduto(categoriaProdutoRepository.selecionarPorId(1).get(0));
+			produtoRepository.editar(p1);
 
-			System.out.println("******** Ex. Excluir categoria ********");
-			listaCategoriaProduto = categoriaProdutoRepository.excluirPorId(1);
-			System.out.println("******** Registro(s) restante(s) ********");
-			listaCategoriaProduto.forEach(System.out::println);
-			System.out.println("\n\r");
+			Produto p2 = produtoRepository.selecionarPorId(2).get(0);
+			p2.setCategoriaProduto(categoriaProdutoRepository.selecionarPorId(2).get(0));
+			produtoRepository.editar(p2);
+
+			// System.out.println("******** Ex. Editar categoria ********");
+			// CategoriaProduto cp = listaCategoriaProduto.get(0);
+			// cp.atualizar(1, "Veículo", "Veículos automotores");
+			// categoriaProdutoRepository.editar(cp);
+			// listaCategoriaProduto.forEach(System.out::println);
+			// System.out.println("\n\r");
+
+			// System.out.println("******** Ex. Excluir categoria ********");
+			// listaCategoriaProduto = categoriaProdutoRepository.excluirPorId(1);
+			// System.out.println("******** Registro(s) restante(s) ********");
+			// listaCategoriaProduto.forEach(System.out::println);
+			// System.out.println("\n\r");
 		};
 	}
 
